@@ -11,7 +11,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 's_-aro!sw@)bob$tojdq!s61$+3s22y=dbe!b5y3!p4ch&y3k#'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['web']
 
@@ -139,9 +139,3 @@ LOGGING = {
         },
     },
 }
-
-# ---------------- Local settings ---------------------------------------
-try:
-    from .local_settings import *
-except ImportError:
-    print('No local settings found')
