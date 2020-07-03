@@ -26,13 +26,16 @@ shell-db:
 	docker exec -ti pz01 /bin/sh
 
 log-nginx:
-	docker-compose logs nginx  
+	docker-compose logs nginx
 
 log-web:
-	docker-compose logs web  
+	docker-compose logs web
 
 log-db:
 	docker-compose logs db
 
 collectstatic:
-	docker exec dz01 /bin/sh -c "python manage.py collectstatic --noinput"  
+	docker exec dz01 /bin/sh -c "python manage.py collectstatic --noinput"
+
+createsuperuser:
+	docker exec dz01 /bin/sh -c "python manage.py shell -c \"from django.contrib.auth.models import User; User.objects.create_superuser('$(username)', '$(email)', '$(password)')\""
