@@ -1,6 +1,6 @@
 Template for deploying django projects with docker, nginx, gunicorn and postgres
 
-By dedault web service installs python dependencies based on requeriments.pip which does not specify any version (so last dependencie version would be downloaded).
+By dedault web service installs python dependencies based on [requeriments.pip](https://github.com/imjulioc/django-project-template/blob/master/src/requirements.pip) which does not specify any version (so last dependencie version would be downloaded).
 
 ## Debugging and develop django project
 Run your django project by not building anything yet setting a venv inside [src](https://github.com/imjulioc/django-project-template/tree/master/src) and running **django runserver** command with **--settings='project.local_settings'** parameter.
