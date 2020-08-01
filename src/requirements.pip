@@ -13,3 +13,5 @@ vine
 djangorestframework
 markdown
 django-filter
+django django-cors-headers
+PyJWT
