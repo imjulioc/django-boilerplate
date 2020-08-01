@@ -11,6 +11,7 @@ Run your django project by not building anything yet setting a venv inside [src]
 - make stop: stops services
 - make restart: restarts services
 - make collectstatic: invoke django-collectstatic command in web service
-- make createsuperuser username=USERNAME email=EMAIL password=PASSWORD: invoke django-createsuperuser command in webservice
+- make createsuperuser username=USERNAME email=EMAIL password=PASSWORD: invoke django-createsuperuser command in webservice. Parameters must be single quoted.
+- make createlocalsuperuser: similar usage to createsuperuser. Parameters must be single quoted.
 
 Also see Makefile for commands complete list.
