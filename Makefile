@@ -38,4 +38,4 @@ collectstatic:
 	docker exec dz01 /bin/sh -c "python manage.py collectstatic --noinput"
 
 createsuperuser:
-	docker exec dz01 /bin/sh -c "python manage.py shell -c \"from django.contrib.auth.models import User; User.objects.create_superuser('$(username)', '$(email)', '$(password)')\""
+	docker exec dz01 /bin/sh -c "python manage.py shell -c \"from django.contrib.auth.models import User; User.objects.create_superuser('$(value username)', '$(value email)', '$(value password)')\""
