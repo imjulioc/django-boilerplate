@@ -8,7 +8,11 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 's_-aro!sw@)bob$tojdq!s61$+3s22y=dbe!b5y3!p4ch&y3k#'
+if (not os.path.isfile('key.secret')) and (not os.path.isfile('refresh_token.secret')):
+    from .gen_key import gen_keys; gen_keys()
+
+SECRET_KEY = open('key.secret', 'r').read(-1)
+REFRESH_TOKEN_KEY = open('refresh_token.secret', 'r').read(-1)
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
@@ -27,6 +31,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'main',
     'rest_framework',
+    'corsheaders',
     'celery',
 ]
 
@@ -115,11 +120,22 @@ USE_TZ = True
 STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
 
-CELERY_BROKER_URL = 'redis://redis:6379/0'
-CELERY_RESULT_BACKEND = 'redis://redis:6379/0'
-
 STATIC_ROOT = './static/'
 MEDIA_ROOT = './media/'
+
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': (
+        'rest_framework.permissions.IsAuthenticated',
+    ),
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
+    'PAGE_SIZE': 5,
+}
+
+CORS_ALLOW_CREDENTIALS = True
+CORS_ORIGIN_WHITELIST = []
+
+CELERY_BROKER_URL = 'redis://redis:6379/0'
+CELERY_RESULT_BACKEND = 'redis://redis:6379/0'
 
 LOGGING = {
     'version': 1,
