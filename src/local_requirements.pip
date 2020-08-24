@@ -1,0 +1,16 @@
+amqp
+billiard
+celery
+Django
+gunicorn
+kombu
+pillow
+pytz
+redis
+sqlparse
+vine
+djangorestframework
+markdown
+django-filter
+django-cors-headers
+PyJWT
