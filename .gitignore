@@ -31,3 +31,5 @@ venv
 env/
 env
 
+# Project settings #
+*.secret
