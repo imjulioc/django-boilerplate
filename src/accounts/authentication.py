@@ -30,7 +30,7 @@ class JWTAuthentication(BaseAuthentication):
         except IndexError:
             raise exceptions.AuthenticationFailed('Token prefix not defined.')
 
-        user = User.objects.filter(_id=payload['_id']).first()
+        user = User.objects.filter(id=payload['id']).first()
         if user is None:
             raise exceptions.AuthenticationFailed('User not found.')
         if not user.is_active:
