@@ -1,4 +1,4 @@
-# Django #
+# django
 *.log
 *.pot
 *.pyc
@@ -6,26 +6,27 @@ __pycache__
 db.sqlite3
 media
 migrations
+!migrations/__init__.py
 static
 
-# Python #
+# python
 *.py[cod]
 *$py.class
 
-# Installer logs #
+# Installer logs
 pip-log.txt
 pip-delete-this-directory.txt
 
 # celery
 celerybeat-schedule.*
 
-# Code editors #
+# Code editors
 .vscode/*
 .vscode/
 .idea/
 .idea/*
 
-# Virtual env #
+# Virtual env
 venv/
 venv
 env/
@@ -33,5 +34,5 @@ env
 .venv/
 .venv
 
-# Project settings #
+# Project settings
 *.secret
