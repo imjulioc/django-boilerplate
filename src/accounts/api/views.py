@@ -28,12 +28,12 @@ def login(request):
         return Response({'error': 'Username or password is wrong.'}, status=status.HTTP_404_NOT_FOUND)
     response = Response()
 
-    acces_token = generate_access_token(user.id)
+    access_token = generate_access_token(user.id)
     refresh_token = generate_refresh_token(user.id)
 
     response.set_cookie(key='refresh_token', value=refresh_token, httponly=True)
     response.data = {
-        'acces_token': acces_token
+        'access_token': access_token
     }
     return response
 
