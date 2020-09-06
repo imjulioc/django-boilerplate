@@ -4,6 +4,7 @@ from rest_framework.response import Response
 from django.views.decorators.csrf import ensure_csrf_cookie, csrf_protect
 from django.conf import settings
 import jwt
+import datetime
 
 from ..models import User
 from ..serializers import UserCreateSerializer
@@ -31,7 +32,13 @@ def login(request):
     access_token = generate_access_token(user.id)
     refresh_token = generate_refresh_token(user.id)
 
-    response.set_cookie(key='refresh_token', value=refresh_token, httponly=True)
+    response.set_cookie(
+        key='refresh_token', 
+        value=refresh_token, 
+        expires=datetime.datetime.utcnow() + datetime.timedelta(days=7), 
+        httponly=True,
+        samesite='Lax'    
+    )
     response.data = {
         'access_token': access_token
     }
