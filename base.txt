@@ -1,0 +1,9 @@
+Django
+djangorestframework
+markdown
+django-filter
+django-cors-headers
+PyJWT
+redis
+celery
+gunicorn
