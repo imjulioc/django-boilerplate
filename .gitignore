@@ -1,15 +1,18 @@
-# django
+# Django
 *.log
 *.pot
 *.pyc
 __pycache__
 db.sqlite3
-media
-migrations
+media/
+migrations/
 !migrations/__init__.py
-static
+static/
 
-# python
+# Project
+*.secret
+
+# Python
 *.py[cod]
 *$py.class
 
@@ -17,22 +20,15 @@ static
 pip-log.txt
 pip-delete-this-directory.txt
 
-# celery
+# Celery
 celerybeat-schedule.*
 
 # Code editors
-.vscode/*
 .vscode/
 .idea/
-.idea/*
 
-# Virtual env
-venv/
-venv
-env/
-env
+# Virtual environments
 .venv/
-.venv
-
-# Project settings
-*.secret
+.env/
+venv/
+env/
